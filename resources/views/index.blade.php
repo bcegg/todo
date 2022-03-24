@@ -7,6 +7,6 @@
   <title>TODO</title>
 </head>
 <body>
-  
+  <p>{{$items}}</p>
 </body>
 </html>
