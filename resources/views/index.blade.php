@@ -22,7 +22,7 @@
     </tr>
     <tr>
       <td>{{$item->created_at}}</td>
-      <td><input type="text" name="content"></td>
+      <td><input type="text" name="content" value="{{$item->content}}"></td>
       <td><input type="submit" value="更新"></td>
       <td><input type="submit" value="削除"></td>
     </tr>
