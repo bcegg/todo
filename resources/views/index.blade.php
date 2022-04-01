@@ -11,7 +11,7 @@
 <body>
   <form action="/todo/create" method="post">
     @csrf
-    <input type="text" name="create">
+    <input type="text" name="content">
     <input type="submit" value="送信">
   </form>
   @foreach($items as $item)
@@ -23,8 +23,20 @@
     <tr>
       <td>{{$item->created_at}}</td>
       <td><input type="text" name="content" value="{{$item->content}}"></td>
-      <td><input type="submit" value="更新"></td>
-      <td><input type="submit" value="削除"></td>
+      <td>
+        <form action="/todo/update" method="post">
+          @csrf
+          <input value="{{$item->id}}" style="display:none">
+          <button>更新</button>
+        </form>
+      </td>
+      <td>
+        <form action="/todo/delete" method="post">
+          @csrf
+          <input id="id" name="id" value="{{$item->id}}" style="display:none">
+          <button>削除</button>
+        </form>
+      </td>
     </tr>
   </table>
   @endforeach
